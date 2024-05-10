@@ -264,7 +264,8 @@ def reveal(x,y)
             if nx >= 0 && nx < $minefield[0].length && ny >= 0 && ny < $minefield.length
                 # Reveal the neighboring cell if it's not already revealed
                 if !$minefield[ny][nx].revealed
-                reveal(nx, ny)
+                    reveal(nx, ny)
+                end
             end
         end
     end
