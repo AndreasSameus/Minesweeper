@@ -94,7 +94,9 @@ class Bomb
         for i in 0...minefield.length
             row = minefield[i]
             col_index = row.index(self)
-            return [i, col_index] if col_index
+            if col_index
+                return [i, col_index] 
+            end
         end
     end
 
@@ -107,10 +109,14 @@ class Bomb
     def count_bombs(minefield, row_index, col_index)
         bombs_count = 0
         for r in (row_index - 1)..(row_index + 1)
-            next if r < 0 || r >= minefield.length
+            if r < 0 || r >= minefield.length
+                next 
+            end
 
             for c in (col_index - 1)..(col_index + 1)
-                next if c < 0 || c >= minefield[r].length || (r == row_index && c == col_index)
+                if c < 0 || c >= minefield[r].length || (r == row_index && c == col_index)
+                    next 
+                end
 
                 if minefield[r][c].bomb
                  bombs_count += 1 
