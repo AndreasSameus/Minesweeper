@@ -119,7 +119,7 @@ class Bomb
                 end
 
                 if minefield[r][c].bomb
-                 bombs_count += 1 
+                    bombs_count += 1 
                 end
             end
         end
